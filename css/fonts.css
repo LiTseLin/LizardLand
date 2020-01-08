@@ -1,0 +1,10 @@
+/* 嵌入字型 */
+@font-face {
+    font-family: 'Stzhongs';
+    src: url('../fonts/Stzhongs.woff') format("woff"),
+           url('../fonts/Stzhongs.ttf') format("truetype"),
+           url('../fonts/Stzhongs.eot') format("embedded-opentype");
+  }
+  body {
+    font-family: 'Stzhongs' ;
+}

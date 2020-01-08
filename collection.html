@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lizardland球衣怪奇地</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FAV ICON(BROWSER TAB ICON) -->
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700%7CMontserrat:300,500%7COswald:400,500"
+        rel="stylesheet">
+
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- ALL CSS FILES -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/preloader.css">
+
+    <!-- MOB.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
+    <link rel="stylesheet" href="css/mob.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="images/loading-img.gif" alt="">
+    </div>
+    <!-- END LOADER -->
+    <!--SECTION: LEFT MENU-->
+    <section>
+        <!-- LEFT SIDE NAVIGATION MENU -->
+        <div class="menu">
+            <ul>
+                <!-- MAIN MENU -->
+                <li>
+                    <a href="main.html" class="menu-lef-act"><img src="images/icon/s1.png" alt=""> Home</a>
+                </li>
+                <li>
+                    <a href="collection.html"><img src="images/icon/f7.png" alt=""> 收藏展示</a>
+                </li>
+                <li>
+                    <a href="team-ranking.html"><img src="images/icon/r1.png" alt=""> Ranking</a>
+                </li>
+                <li>
+                    <a href="team-squad.html"><img src="images/icon/f4.png" alt=""> Story</a>
+                </li>
+                <li>
+                    <a href="soccer.html"><img src="images/icon/f2.png" alt=""> 足球世界</a>
+                </li>
+                <li>
+                    <a href="join-our-club.html"><img src="images/icon/cy5.png" alt=""> 戰情室</a>
+                </li>
+                <li>
+                    <a href="about.html"><img src="images/icon/about.png" alt=""> 整理出清區 </a>
+                </li>
+                <li>
+                    <a href="contact.html"><img src="images/icon/contact.png" alt=""> About</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- RIGHT SIDE NAVIGATION MENU -->
+        <!-- MOBILE MENU(This mobile menu show on 0px to 767px windows only) -->
+        <div class="mob-menu">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </div>
+        <div class="mob-close">
+            <span><i class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+    </section>
+
+    <!-- TOP BAR -PHONE EMAIL AND TOP MENU -->
+    <section class="i-head-top">
+        <div class="i-head row">
+            <!-- 左上角資訊 -->
+            <div class="i-head-left i-head-com col-md-6">
+                <ul>
+                    <li><a href="#">Email: richardlin0512@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 右上角項目 -->
+            <div class="i-head-right i-head-com col-md-6 col-sm-12 col-xs-12">
+                <ul>
+                    <li class="top-scal-1"><a href="event-register.html"><i class="fa fa-registered"
+                                aria-hidden="true"></i> 取得聯繫</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+        <script type='text/javascript'> 
+          // 於Google Spreadsheet建立的範例資料為 https://docs.google.com/spreadsheets/d/e/2PACX-1vR9LivzlVjV3Mp9EOw0rCh46tDacBY6uQ8AT4k6ObLecvL8P-BpgKza9IOyGfFkP3tEdNSereSt8wxT/pubhtml
+          var publicSpreadsheetUrl = 'https://drive.google.com/open?id=151kbHiZHfzrXYMo2666WDbtt4yCRnWpCeIsXBayy-2Y';
+    
+          function init() {
+            Tabletop.init( { key: publicSpreadsheetUrl,
+                             callback: showInfo,
+                             simpleSheet: true } )
+          }
+    
+          function showInfo(data, tabletop) {
+            // alert('Successfully processed!')
+            console.log(data);
+            
+            var str = "";
+            for (var i=0; i<data.length; i++) {
+                // 於Google Spreadsheet建立的範例資料A欄命名為name、B欄命名為telephone、c欄命名為lunchbox、d欄命名為order
+                str1 += data[i].球隊
+            }
+            document.getElementById("demo").innerHTML = str1;
+          }
+    
+          window.addEventListener('DOMContentLoaded', init)
+        </script>
+        
+        <div class="lp spe-bot-red-3">
+            <div class="inn-title">
+                <h2><i class="fa fa-check" aria-hidden="true"></i> 球衣收藏品 <span>展示區</span></h2>
+                <p>Jerseys Collection</p>
+            </div>
+            <div class="hom-top-trends row">
+                <!--TOP TRENDINGS-->
+                <div class="col-md-3">
+                    <div class="hom-trend">
+                        <div class="hom-trend-img">
+                            <img class="img-responsive" src="images/Jerseys/C01.JPG" alt="">
+                        </div>
+                        <div class="hom-trend-con">
+                            <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span>
+                            <a href="football.html">
+                                <h4>Man City Retro Track jacket
+                                </h4>
+                            </a>
+                            <p>Replica, Umbro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>;
+            <div id="demo"></div>
+
+        </div>
+    </section>
+   
+
+    <!--SECTION: BLOG POSTS-->
+    <section>
+        <div class="blog row">
+            <div class="lp">
+                <!-- BLOG POST: POST DATE -->
+                <div class="blog-1 col-md-2">
+                    <span>Latest jersey</span>
+                    <h4>25</h4>
+                    <span>11 2019</span>
+                </div>
+                <!-- BLOG POST: POST NAME & DESCRIPTION -->
+                <div class="blog-2 col-md-8">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <h4>WESTERN SYDNEY WANDERERS VS URAWA RED DIAMONDS</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <p>In efficitur nisi et condimentum mattis. Duis et aliquet purus, quis congue elit. Cras
+                                volutpat dapibus molestie. Pellentesque habitant morbi tristique senectus et netus et
+                                malesuada fames ac turpis egestas. Donec posuere mollis augue, a accumsan libero egestas
+                                sit amet.Vestibulum posuere erat tortor, porta tempus leo condimentum sed. </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- BLOG POST: POST COMMENTS,TAG AND SOCIAL MEDIA -->
+                <div class="blog-3 col-md-2">
+                    <ul>
+                        <li><i class="fa fa-comment-o" aria-hidden="true"></i> Comments</li>
+                        <li><i class="fa fa-tag" aria-hidden="true"></i> Tag</li>
+                        <li><i class="fa fa-share-alt" aria-hidden="true"></i> Share This</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION: FOOTER-->
+    <section>
+        <div class="ffoot">
+            <div class="lp">
+                <!--SECTION: FOOTER-->
+                <div class="row">
+                    <div class="col-md-12 foot1">
+                        <a href="#"><img src="images/logo.png" alt="">
+                        </a>
+                        <ul>
+                            <li><span>160</span> 件球衣</li>
+                            <li><span>13</span> 個國家</li>
+                            <li><span>25</span> 支隊伍</li>
+                            <li><span>10</span> 位球員</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--SECTION: FOOTER-->
+                <div class="row foot2">
+                    <div class="col-md-12">
+                        
+                        <div class="foot2-2 foot-soc foot-com">
+                            <h4>Follow Now</h4>
+                            <p>不定期發布球衣優惠資訊</p>
+                            <ul>
+                                <li><a href="https://www.facebook.com/Lizardary%E7%90%83%E8%A1%A3%E6%80%AA%E5%A5%87%E5%9C%B0-100447414653935/"><i class="fa fa-facebook fb1"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                <!--SECTION: FOOTER-->
+    <!--Footer-->
+    
+    <!--== Bootstrap & Latest JS ==-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-90614514-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

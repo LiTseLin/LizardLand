@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lizardland球衣怪奇地</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- FAV ICON(BROWSER TAB ICON) -->
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700%7CMontserrat:300,500%7COswald:400,500"
+        rel="stylesheet">
+
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- ALL CSS FILES -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/preloader.css">
+
+    <!-- MOB.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
+    <link rel="stylesheet" href="css/mob.css">
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="images/loading-img.gif" alt="">
+    </div>
+    <!-- END LOADER -->
+    <!--SECTION: LEFT MENU-->
+    <section>
+        <!-- LEFT SIDE NAVIGATION MENU -->
+        <div class="menu">
+            <ul>
+                <!-- MAIN MENU -->
+                <li>
+                    <a href="main.html" class="menu-lef-act"><img src="images/icon/s1.png" alt=""> Home</a>
+                </li>
+                <li>
+                    <a href="collection.html"><img src="images/icon/f7.png" alt=""> 收藏展示</a>
+                </li>
+                <li>
+                    <a href="team-ranking.html"><img src="images/icon/r1.png" alt=""> Ranking</a>
+                </li>
+                <li>
+                    <a href="team-squad.html"><img src="images/icon/f4.png" alt=""> Story</a>
+                </li>
+                <li>
+                    <a href="soccer.html"><img src="images/icon/f2.png" alt=""> 足球世界</a>
+                </li>
+                <li>
+                    <a href="join-our-club.html"><img src="images/icon/cy5.png" alt=""> 戰情室</a>
+                </li>
+                <li>
+                    <a href="about.html"><img src="images/icon/about.png" alt=""> 整理出清區 </a>
+                </li>
+                <li>
+                    <a href="contact.html"><img src="images/icon/contact.png" alt=""> About</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- RIGHT SIDE NAVIGATION MENU -->
+        <!-- MOBILE MENU(This mobile menu show on 0px to 767px windows only) -->
+        <div class="mob-menu">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </div>
+        <div class="mob-close">
+            <span><i class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+    </section>
+
+    <!-- TOP BAR -PHONE EMAIL AND TOP MENU -->
+    <section class="i-head-top">
+        <div class="i-head row">
+            <!-- 左上角資訊 -->
+            <div class="i-head-left i-head-com col-md-6">
+                <ul>
+                    <li><a href="#">Email: richardlin0512@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 右上角項目 -->
+            <div class="i-head-right i-head-com col-md-6 col-sm-12 col-xs-12">
+                <ul>
+                    <li class="top-scal-1"><a href="event-register.html"><i class="fa fa-registered"
+                                aria-hidden="true"></i> 取得聯繫</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="map" style="width: 1024px; height: 680px;"></div>
+ 
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlbnl1eWkiLCJhIjoiY2l1ZWoxemx6MDAweTJ5cHI3NHNnajR2NiJ9.cNpWK-0HoYbcumuQ8yvbjQ';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9'
+        });
+         
+        var size = 200;
+         
+        // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
+        // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
+        var pulsingDot = {
+        width: size,
+        height: size,
+        data: new Uint8Array(size * size * 4),
+         
+        // get rendering context for the map canvas when layer is added to the map
+        onAdd: function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        this.context = canvas.getContext('2d');
+        },
+         
+        // called once before every frame where the icon will be used
+        render: function() {
+        var duration = 1000;
+        var t = (performance.now() % duration) / duration;
+         
+        var radius = (size / 2) * 0.3;
+        var outerRadius = (size / 2) * 0.7 * t + radius;
+        var context = this.context;
+         
+        // draw outer circle
+        context.clearRect(0, 0, this.width, this.height);
+        context.beginPath();
+        context.arc(
+        this.width / 2,
+        this.height / 2,
+        outerRadius,
+        0,
+        Math.PI * 2
+        );
+        context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+        context.fill();
+         
+        // draw inner circle
+        context.beginPath();
+        context.arc(
+        this.width / 2,
+        this.height / 2,
+        radius,
+        0,
+        Math.PI * 2
+        );
+        context.fillStyle = 'rgba(255, 100, 100, 1)';
+        context.strokeStyle = 'white';
+        context.lineWidth = 2 + 4 * (1 - t);
+        context.fill();
+        context.stroke();
+         
+        // update this image's data with data from the canvas
+        this.data = context.getImageData(
+        0,
+        0,
+        this.width,
+        this.height
+        ).data;
+         
+        // continuously repaint the map, resulting in the smooth animation of the dot
+        map.triggerRepaint();
+         
+        // return `true` to let the map know that the image was updated
+        return true;
+        }
+        };
+         
+        map.on('load', function() {
+        map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+         
+        map.addLayer({
+        'id': 'points',
+        'type': 'symbol',
+        'source': {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        'type': 'Feature',
+        'geometry': {
+        'type': 'Point',
+        'coordinates': [0, 0]
+        }
+        }
+        ]
+        }
+        },
+        'layout': {
+        'icon-image': 'pulsing-dot'
+        }
+        });
+        });
+        </script>
+    </section>
+
+    <section>
+        <div class="ffoot">
+            <div class="lp">
+                <!--SECTION: FOOTER-->
+                <div class="row">
+                    <div class="col-md-12 foot1">
+                        <a href="#"><img src="images/logo.png" alt="">
+                        </a>
+                        <ul>
+                            <li><span>160</span> 件球衣</li>
+                            <li><span>13</span> 個國家</li>
+                            <li><span>25</span> 支隊伍</li>
+                            <li><span>10</span> 位球員</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--SECTION: FOOTER-->
+                <div class="row foot2">
+                    <div class="col-md-12">
+                        
+                        <div class="foot2-2 foot-soc foot-com">
+                            <h4>Follow Now</h4>
+                            <p>不定期發布球衣優惠資訊</p>
+                            <ul>
+                                <li><a href="https://www.facebook.com/Lizardary%E7%90%83%E8%A1%A3%E6%80%AA%E5%A5%87%E5%9C%B0-100447414653935/"><i class="fa fa-facebook fb1"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                <!--SECTION: FOOTER-->
+    <!--Footer-->
+    
+    <!--== Bootstrap & Latest JS ==-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-90614514-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
